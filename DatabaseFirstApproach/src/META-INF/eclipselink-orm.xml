@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.5" xmlns="http://www.eclipse.org/eclipselink/xsds/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eclipse.org/eclipselink/xsds/persistence/orm http://www.eclipse.org/eclipselink/xsds/eclipselink_orm_2_5.xsd">
+    <named-query name="Car.findAll">
+        <query>select c from Car c</query>
+    </named-query>
+    <named-query name="Sequence.findAll">
+        <query>select s from Sequence s</query>
+    </named-query>
+	<entity class="com.databasefirst.dao.Car" access="VIRTUAL">
+		<attributes>
+			<id name="cid" attribute-type="int">
+			</id>
+			<basic name="cbrand" attribute-type="String">
+			</basic>
+			<basic name="cmodel" attribute-type="String">
+			</basic>
+		</attributes>
+	</entity>
+	<entity class="com.databasefirst.dao.Sequence" access="VIRTUAL">
+		<attributes>
+			<id name="seqName" attribute-type="String">
+				<column name="SEQ_NAME"/>
+			</id>
+			<basic name="seqCount" attribute-type="java.math.BigDecimal">
+				<column name="SEQ_COUNT"/>
+			</basic>
+		</attributes>
+	</entity>
+</entity-mappings>
