@@ -1,0 +1,13 @@
+package com.codefirst.dao.car;
+
+import java.util.List;
+
+import com.codefirst.dao.car.Car;
+
+public interface CarDAO {
+	public List<Car> getAllCars();
+	public Car getCarByID(int id);
+	public void createCar(Car c);
+	public void deleteCar(int id);
+	public void updateCar(Car c);
+}
