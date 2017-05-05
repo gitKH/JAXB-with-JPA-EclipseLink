@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="DatabaseFirstApproach">
-		<mapping-file>META-INF/eclipselink-orm.xml</mapping-file>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="DatabaseFirstApproach"
+		transaction-type="RESOURCE_LOCAL">
+		<class>com.databaseFirst.Model.Actor</class>
+		<class>com.databaseFirst.Model.Address</class>
+		<class>com.databaseFirst.Model.Category</class>
+		<class>com.databaseFirst.Model.City</class>
+		<class>com.databaseFirst.Model.Country</class>
+		<class>com.databaseFirst.Model.Customer</class>
+		<class>com.databaseFirst.Model.Film</class>
+		<class>com.databaseFirst.Model.FilmActor</class>
+		<class>com.databaseFirst.Model.FilmActorPK</class>
+		<class>com.databaseFirst.Model.FilmCategory</class>
+		<class>com.databaseFirst.Model.FilmCategoryPK</class>
+		<class>com.databaseFirst.Model.FilmText</class>
+		<class>com.databaseFirst.Model.Inventory</class>
+		<class>com.databaseFirst.Model.Language</class>
+		<class>com.databaseFirst.Model.Payment</class>
+		<class>com.databaseFirst.Model.Rental</class>
+		<class>com.databaseFirst.Model.Staff</class>
+		<class>com.databaseFirst.Model.Store</class>
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/sakila" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="root" />
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="database" />
+		</properties>
 	</persistence-unit>
 </persistence>

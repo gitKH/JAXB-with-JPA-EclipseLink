@@ -13,26 +13,22 @@ public class BoatDB implements BoatDAO{
 		myEntityManager = EntityManagerInctance.getMyEntityManager();
 	}
 
-	@Override
 	public List<Boat> getAllBoats() {
 		List<Boat> listBoats = myEntityManager.createQuery("select b from BOAT b").getResultList();
 		return listBoats;
 	}
 
-	@Override
 	public Boat getBoatByID(BoatID id) {
 		Boat tmp = myEntityManager.find(Boat.class, id);
 		return tmp;
 	}
 
-	@Override
 	public void createBoat(Boat b) {
 		myEntityManager.getTransaction().begin();
 		myEntityManager.merge(b);
 		myEntityManager.getTransaction().commit();
 	}
 
-	@Override
 	public void deleteBoat(BoatID id) {
 		myEntityManager.getTransaction().begin();
 		Boat tmp = myEntityManager.find(Boat.class, id);
@@ -40,7 +36,6 @@ public class BoatDB implements BoatDAO{
 		myEntityManager.getTransaction().commit();
 	}
 
-	@Override
 	public void updateBoat(BoatID id) {
 		myEntityManager.getTransaction().begin();
 		myEntityManager.find(Boat.class, id);

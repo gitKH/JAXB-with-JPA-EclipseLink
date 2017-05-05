@@ -20,7 +20,7 @@ public class Car implements Serializable {
 	 */
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CID")
-	private int carID;
+	public int carID;
 	@Column(name="CBRAND")
 	private String brand;
 	@Column(name="CMODEL")

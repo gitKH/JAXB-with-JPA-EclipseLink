@@ -14,14 +14,12 @@ public class MotorDB implements MotorDAO {
 		myEntityManager = EntityManagerInctance.getMyEntityManager();
 	}
 
-	@Override
 	public List<Motor> getAllMotor() {
 		List<Motor> listMotor;
 		listMotor = myEntityManager.createQuery("select m from Motor m").getResultList();
 		return listMotor;
 	}
 
-	@Override
 	public Motor getMotorByID(MotorID id) {
 		
 		Motor m = null;
@@ -34,14 +32,12 @@ public class MotorDB implements MotorDAO {
 		return m;
 	}
 
-	@Override
 	public void createMotor(Motor motor) {
 		myEntityManager.getTransaction().begin();
 		myEntityManager.merge(motor);
 		myEntityManager.getTransaction().commit();
 	}
 
-	@Override
 	public void deleteMotor(MotorID id) {
 		myEntityManager.getTransaction().begin();
 		Motor tmp = myEntityManager.find(Motor.class, id);
@@ -49,7 +45,6 @@ public class MotorDB implements MotorDAO {
 		myEntityManager.getTransaction().commit();
 	}
 
-	@Override
 	public void updateMotor(MotorID id) {
 		myEntityManager.find(Motor.class, id);
 	}

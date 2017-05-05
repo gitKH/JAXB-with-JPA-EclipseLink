@@ -19,7 +19,6 @@ public class CarDB implements CarDAO {
 		initialize();
 	}
 
-	@Override
 	public List<Car> getAllCars() {
 		myEntityManager.getTransaction().begin();
 		@SuppressWarnings("unchecked")
@@ -28,7 +27,6 @@ public class CarDB implements CarDAO {
 		return carList;
 	}
 
-	@Override
 	public Car getCarByID(int id) {
 		Car c = null;
 		for (Car tmp : this.getAllCars()) {
@@ -40,14 +38,12 @@ public class CarDB implements CarDAO {
 		return c;
 	}
 
-	@Override
 	public void createCar(Car c) {
 		myEntityManager.getTransaction().begin();
 		myEntityManager.merge(c);
 		myEntityManager.getTransaction().commit();
 	}
 
-	@Override
 	public void deleteCar(int id) {
 		myEntityManager.getTransaction().begin();
 		Car tmp = myEntityManager.find(Car.class, id);
@@ -55,7 +51,6 @@ public class CarDB implements CarDAO {
 		myEntityManager.getTransaction().commit();
 	}
 
-	@Override
 	public void updateCar(Car c) {
 		myEntityManager.getTransaction().begin();
 		Car tmp = myEntityManager.find(Car.class, c.getCarID());
