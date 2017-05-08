@@ -1,32 +1,31 @@
 package com.codefirst.main;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Date;
 import com.codefirst.dao.boat.*;
 import com.codefirst.dao.car.*;
+import com.codefirst.dao.car.carType.CarType;
+import com.codefirst.dao.car.carType.CarTypeDAO;
+import com.codefirst.dao.car.carType.CarTypeDB;
 import com.codefirst.dao.motor.*;
 
 public class CodeFirstMain {
 	static CarDAO carDB = new CarDB();
 	static MotorDAO motorDB = new MotorDB();
 	static BoatDAO boatDB = new BoatDB();
-
+	static CarTypeDAO carTypeDB = new CarTypeDB();
 
 	public static void main(String[] args) {
 		System.out.println("JPA test cases...");
 		
-		Boat b = new Boat();
-		b.setBrand("Wellcraft");
-		b.setModel("dolphin 100");
-		b.setBoadId(new BoatID(1001,"GR"));
+		CarType ct = new CarType("Jeep");
 		
-		boatDB.createBoat(b);
+		Car c = new Car();
+		c.setBrand("VW");
+		c.setModel("EOS");
+		c.setCarType(ct);
 		
-		Boat tmp = boatDB.getBoatByID(b.getBoadId());
-		tmp.setYear(2010);
-		boatDB.updateBoat(tmp.getBoadId());
-		
-		boatDB.deleteBoat(b.getBoadId());
+		carTypeDB.createCarType(ct);
+		carDB.createCar(c,null);
 		
 		System.out.println("End");
 	}
