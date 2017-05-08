@@ -23,8 +23,8 @@ public class CarType implements Serializable{
 	private int carTypeId;
 	private String carType;
 	
-	//@OneToMany(mappedBy = "carType")
-	//private List<Car> cars;
+	@OneToMany(mappedBy = "carType")
+	private List<Car> cars;
 
 	public CarType() {
 
@@ -44,8 +44,7 @@ public class CarType implements Serializable{
 
 	@Override
 	public String toString() {
-		return "CarType [carTypeId=" + carTypeId + ", carType=" + carType + ", cars=" + "Change me" + "]";
+		return "CarType [carTypeId=" + carTypeId + ", carType=" + carType
+				+ ", cars=" + cars + "]";
 	}
-	
-
 }

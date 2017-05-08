@@ -1,10 +1,12 @@
 package com.codefirst.dao.car.carType;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 
 import com.codefirst.EntityManager.EntityManagerInctance;
+import com.codefirst.dao.car.Car;
 
 
 public class CarTypeDB implements CarTypeDAO{
@@ -16,11 +18,12 @@ public class CarTypeDB implements CarTypeDAO{
 	}
 	
 	public CarTypeDB(){
-		//initilizeCarType();
+		initilizeCarType();
 	}
 
 	public List<CarType> getAllCarTypes() {
-		List<CarType> listCarTypes = myEntityManager.createQuery("select c from CarType c").getResultList();
+		List<CarType> listCarTypes = myEntityManager
+				.createQuery("select c from CarType c").getResultList();
 		return listCarTypes;
 	}
 

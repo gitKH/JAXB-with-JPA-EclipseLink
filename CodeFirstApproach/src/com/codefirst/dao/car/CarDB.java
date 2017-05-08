@@ -12,14 +12,12 @@ import com.codefirst.dao.car.carType.CarTypeDB;
 public class CarDB implements CarDAO{
 
 	private static EntityManager myEntityManager;
-	private CarTypeDB carTypeDB;
 
 	static {
 		myEntityManager = EntityManagerInctance.getMyEntityManager();
 	}
 
 	public CarDB() {
-		carTypeDB = new CarTypeDB();
 		initialize();
 	}
 
@@ -42,10 +40,9 @@ public class CarDB implements CarDAO{
 		return c;
 	}
 
-	public void createCar(Car c , CarType ct) {
+	public void createCar(Car c) {
 		myEntityManager.getTransaction().begin();
 		myEntityManager.persist(c);
-		//carTypeDB.createCarType(ct);
 		myEntityManager.getTransaction().commit();
 	}
 
@@ -66,13 +63,17 @@ public class CarDB implements CarDAO{
 	private void initialize() {
 		Car c1 = new Car();
 		Car c2 = new Car();
+		Car c3 = new Car();
 
 		c1.setBrand("VW");
 		c1.setModel("Polo");
 		c2.setBrand("Seat");
 		c2.setModel("Ibiza");
+		c3.setBrand("Toyota");
+		c3.setModel("Yaris");
 
-		createCar(c1,null);
-		createCar(c2,null);
+		createCar(c1);
+		createCar(c2);
+		createCar(c3);
 	}
 }
